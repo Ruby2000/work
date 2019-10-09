@@ -2,22 +2,22 @@ package complexone;
 
 import java.util.Scanner;
 
-public class complex {
-        double real;
-        double image;
-        complex(double newReal, double newImage){  //
+public class complex { //复数类
+       double real; //实部
+        double image; //虚部
+        complex(double newReal, double newImage){  //不带参数的构造方法
         	Scanner input =new Scanner(System.in);
         	double real=input.nextDouble();
         	double image= input.nextDouble();
         	complex(real,image);
         }
  private void complex(double real,double image)
-       {
+       {  //供不带参数的构造方法调用
         	this.real=real;
         	this.image=image;
         }
         complex(double real,double image)
-        {
+        {//带参数的构造方法
         	this.real=real;
         	this.image=image;
         }
@@ -43,7 +43,7 @@ public class complex {
     	   double newReal=real+real2;
     	   double newImage=image+image2;
     	   complex result= new complex(newReal,newImage);
-    	   return result;   
+    	   return result; //复数加法  
        }
        complex sub(complex a)
        {
@@ -52,7 +52,7 @@ public class complex {
     	   double newReal=real-real2;
     	   double newImage=image-image2;
     	   complex result= new complex(newReal,newImage);
-    	   return result;   
+    	   return result;   //复数减法
        }
        complex mul(complex a)
        {
@@ -61,7 +61,7 @@ public class complex {
     	   double newReal=real*real2-image*image2;
     	   double newImage=image*image2+real*real2;
     	   complex result=new complex(newReal,newImage);
-    	   return result;   
+    	   return result;   //复数乘法
        }
        complex div(complex a)
        {
@@ -70,7 +70,7 @@ public class complex {
     	   double newReal=(real*real2+image*image2)/(real2*real2+image2*image2);
     	   double newImage=(image*real2-real*image2)/(real*real2+image2*image2);
     	   complex result=new complex(newReal,newImage);
-    	   return result;   
+    	   return result;   //复数除法
        }
        public void print() {
     	   if(image>0) {
@@ -83,5 +83,5 @@ public class complex {
     	   }
     	   else {
     		   System.out.println(real);
-    	   }
+    	   }//输出
 }
