@@ -1,0 +1,26 @@
+package outprintf;
+
+public class number {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("输出偶数");
+        for (int a = 0;a<100;a=a+1)
+        {
+        	if(a%2==0)
+        	{
+        		System.out.println(a+"");
+        	}
+        	
+        }
+	System.out.println("输出奇数");
+	for(int a = 0;a<100;a=a+1 )
+	{
+		if(a%2!=0)
+		{
+			System.out.println(a+"");
+		}
+		
+	}
+
+}}
