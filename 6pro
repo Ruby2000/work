@@ -1,0 +1,74 @@
+package pro;
+
+public class Apple extends MyFruit {
+	public Apple() {
+		kind = "Apple";
+	}
+
+}
+package pro;
+
+public class ClientClass {
+	public static void main(String[] args) {
+		MyFruit fru1 = new Apple();
+		MyFruit fru2 = new Banana();
+		MyFruitStore.Add(1, fru1);
+		MyFruitStore.Add(2, fru2);
+		MyFruitStore.Add(3, new Apple());
+		MyFruitStore.Add(4, new Banana());
+
+		MyFruit fru = (MyFruit) MyFruitStore.Get(3);
+		fru.Display();
+
+	}
+
+}
+
+package pro;
+
+public class MyFruit implements Cloneable {
+	protected String kind;
+
+	public void Display() {
+		System.out.println(kind);
+	}
+
+	public Object clone() {
+		Object obj = null;
+		try {
+			obj = super.clone();
+		} catch (CloneNotSupportedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return obj;
+	}
+
+}
+
+package pro;
+
+import java.util.Hashtable;
+
+public class MyFruitStore {
+	private static Hashtable fruittable = new Hashtable<Integer, MyFruit>();
+
+	public static void Add(Integer key, MyFruit fruit) {
+		fruittable.put(key, fruit);
+	}
+
+	public static MyFruit Get(Integer key) {
+		MyFruit fruit = (MyFruit) fruittable.get(key);
+		return (MyFruit) fruit.clone();
+	}
+
+}
+
+package pro;
+
+public class Banana extends MyFruit {
+	public Banana() {
+		kind = "Banana";
+	}
+
+}
